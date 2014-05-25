@@ -37,6 +37,7 @@ plot5TotalByYearMV <- function(dat = readNEIdata(srcCols = c("SCC", "EI.Sector")
     dat <- merge(FIPS, dat, by = "fips")
     
     # Define plot parameters
+    main <- "Total PM2.5 by Year from Motor Vehicles"
     geom <- c("point", "smooth")
     method <- "lm"
     xlab <- ""
@@ -46,8 +47,9 @@ plot5TotalByYearMV <- function(dat = readNEIdata(srcCols = c("SCC", "EI.Sector")
     height <- 900 / dpi * nrow(FIPS)
     
     # Create plot
-    p <- qplot(year, Total_PM2.5, data = dat, geom = geom, method = method, se = FALSE,
-               col = EI.Sector, xlab = xlab, ylab = ylab, facets = fips_Name ~ .)
+    p <- qplot(year, Total_PM2.5, data = dat, geom = geom, method = method,
+               se = FALSE, col = EI.Sector, main = main, xlab = xlab, ylab = ylab,
+               facets = fips_Name ~ .)
     
     # Save plot
     filename <- ifelse(dir == ".", file, paste(dir, file, sep = "/"))

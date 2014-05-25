@@ -37,6 +37,7 @@ plot3TotalByYearType <- function(dat = readNEIdata(),
     dat <- merge(FIPS, dat, by = "fips")
     
     # Define plot parameters
+    main <- "Total PM2.5 by Year"
     geom <- c("point", "smooth")
     method <- "lm"
     xlab <- ""
@@ -46,8 +47,9 @@ plot3TotalByYearType <- function(dat = readNEIdata(),
     height <- 900 / dpi * nrow(FIPS)
     
     # Create plot
-    p <- qplot(year, Total_PM2.5, data = dat, geom = geom, method = method, se = FALSE,
-               xlab = xlab, ylab = ylab, col = type, facets = fips_Name ~ .)
+    p <- qplot(year, Total_PM2.5, data = dat, geom = geom, method = method,
+               se = FALSE, col = type, main = main, xlab = xlab, ylab = ylab,
+               facets = fips_Name ~ .)
     
     # Save plot
     filename <- ifelse(dir == ".", file, paste(dir, file, sep = "/"))

@@ -21,6 +21,7 @@ plot4TotalByYearCoal <- function(dat = readNEIdata(srcCols = c("SCC", "EI.Sector
     dat <- dat[sapply(dat$EI.Sector, isCoal), ]
     
     # Define plot parameters
+    main <- "Total PM2.5 by Year from Coal"
     geom <- c("point", "smooth")
     method <- "lm"
     xlab <- ""
@@ -31,7 +32,7 @@ plot4TotalByYearCoal <- function(dat = readNEIdata(srcCols = c("SCC", "EI.Sector
     
     # Create plot
     p <- qplot(year, Total_PM2.5, data = dat, geom = geom, method = method,
-               col = EI.Sector, xlab = xlab, ylab = ylab)
+               col = EI.Sector, main = main, xlab = xlab, ylab = ylab)
     
     # Save plot
     filename <- ifelse(dir == ".", file, paste(dir, file, sep = "/"))
