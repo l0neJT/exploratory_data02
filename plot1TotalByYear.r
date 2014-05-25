@@ -4,6 +4,9 @@ plot1TotalByYear <- function(dat = readNEIdata(),
                              file = "plot1TotalByYear.png",
                              dir = ".",
                              years = NULL) {
+    # Load libraries
+    library(data.table)
+    
     # Summarize data by year
     # Sets name for total PM2.5 tons
     dat <- dat[, sum(Emissions), by = year]
