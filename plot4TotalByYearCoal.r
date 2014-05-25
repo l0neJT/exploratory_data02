@@ -25,9 +25,9 @@ plot4TotalByYearCoal <- function(dat = readNEIdata(srcCols = c("SCC", "EI.Sector
     method <- "lm"
     xlab <- ""
     ylab <- "Tons PM2.5"
-    dpi <- 72
-    width <- 720 / dpi
-    height <- 480 / dpi
+    dpi <- 90
+    width <- 1440 / dpi
+    height <- 900 / dpi
     
     # Create plot
     p <- qplot(year, Total_PM2.5, data = dat, geom = geom, method = method,
