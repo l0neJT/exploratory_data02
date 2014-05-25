@@ -7,7 +7,8 @@ plot3TotalByYearType <- function(dat = readNEIdata(),
                                  types = NULL,
                                  FIPS = matrix(c("24510", "Baltimore City, MD"), ncol = 2)) {
     # Load libraries
-    library(data.table, ggplot2)
+    library(data.table)
+    library(ggplot2)
     
     # Summarize data by year, fips, and type
     # Sets name for total PM2.5 tons

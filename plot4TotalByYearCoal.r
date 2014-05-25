@@ -5,7 +5,8 @@ plot4TotalByYearCoal <- function(dat = readNEIdata(srcCols = c("SCC", "EI.Sector
                                  dir = ".",
                                  years = NULL) {
     # Load libraries
-    library(data.table, ggplot2)
+    library(data.table)
+    library(ggplot2)
     
     # Summarize data by year and EI sector
     # Sets name for total PM2.5 tons
