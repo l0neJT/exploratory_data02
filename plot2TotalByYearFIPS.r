@@ -4,7 +4,7 @@ plot2TotalByYearFIPS <- function(dat = readNEIdata(),
                              file = "plot2TotalByYearFIPS.png",
                              dir = ".",
                              years = NULL,
-                             FIPS = NULL) {
+                             FIPS = matrix(c("24510", "Baltimore City, MD"), ncol = 2)) {
     # Summarize data by year
     # Sets name for total PM2.5 tons
     dat <- dat[, sum(Emissions), by = c("year", "fips")]
