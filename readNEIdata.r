@@ -27,7 +27,6 @@ readNEIdata <- function(dir = "./data", srcCols = c("SCC", "Short.Name"),
     # Read source codes and PM2.5 data
     sources <- readRDS(files[1])
     pm25Dat <- readRDS(files[2])
-    print(1)
     
     # Limit columns to those pased in 'srcCols' and 'datCols'
     # Adds "SCC" if excluded from either column list; required for merge
@@ -39,12 +38,10 @@ readNEIdata <- function(dir = "./data", srcCols = c("SCC", "Short.Name"),
         if(!"SCC" %in% datCols) datCols <- c("SCC", datCols)
         pm25Dat <- pm25Dat[, datCols]
     }
-    print(2)
     
     # Convert to data.table
     sources <- data.table(sources)
     pm25Dat <- data.table(pm25Dat)
-    print(3)
     
     # Return merged source codes and PM2.5 data
     merge(sources, pm25Dat, by = "SCC")
